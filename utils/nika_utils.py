@@ -9,7 +9,7 @@ from sc_kpm.sc_keynodes import ScKeynodes
 from sc_kpm.utils import get_link_content_data
 from sc_kpm.utils.action_utils import get_action_result
 
-from utils.action_utils import execute_agent_tg_bot
+from utils.action_utils import execute_agent_widget
 
 url = "ws://localhost:8090/ws_json"
 connect(url)
@@ -71,7 +71,7 @@ def get_nika_response(user_message: str) -> str:
     )
     generate_by_template(template)
 
-    action_result, is_successfully = execute_agent_tg_bot(arguments={message_link: False, dialog: False},
+    action_result, is_successfully = execute_agent_widget(arguments={message_link: False, dialog: False},
                                                           concepts=["question", 'action_reply_to_message'], wait_time=3)
 
     if is_successfully:
