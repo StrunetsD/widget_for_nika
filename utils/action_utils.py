@@ -20,20 +20,20 @@ from sc_kpm.utils.action_utils import (
 
 
 
-def execute_agent_tg_bot(
+def execute_agent_widget(
         arguments: Dict[ScAddr, IsDynamic],
         concepts: List[Idtf],
         initiation: Idtf = ActionStatus.ACTION_INITIATED,
         reaction: Idtf = ActionStatus.ACTION_FINISHED_SUCCESSFULLY,
         wait_time: float = COMMON_WAIT_TIME,
 ) -> Tuple[ScAddr, bool]:
-    action = call_agent_tg_bot_test(arguments, concepts, initiation)
+    action = call_agent_widget(arguments, concepts, initiation)
     wait_agent(wait_time, action)
     result = check_connector(sc_type.VAR_PERM_POS_ARC, ScKeynodes.resolve(reaction, sc_type.CONST_NODE_CLASS), action)
     return action, result
 
 
-def call_agent_tg_bot_test(
+def call_agent_widget(
         arguments: Dict[ScAddr, IsDynamic],
         concepts: List[Idtf],
         initiation: Idtf = ActionStatus.ACTION_INITIATED,
